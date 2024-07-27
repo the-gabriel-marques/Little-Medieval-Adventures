@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://enemies/systems/mob_spawner2.gd" type="Script" id=1]
+[ext_resource path="res://enemies/pawn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/knight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/sheep.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -844, -588, 0, 0, 0, 0, 938, -561, 0, 0, 0, 0, 912, 504, 0, 0, 0, 0, -851, 462, 0, 0, 0, 0, -851, -588 )
+}
+
+[node name="MobSpawner" type="Node2D"]
+position = Vector2( 502, 282 )
+script = ExtResource( 1 )
+creatures = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2( -844, -588 )
+rotation = 0.0151489

@@ -1,0 +1,211 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/static/JetBrainsMono-ExtraBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/Tiny Swords/UI/Ribbons/Ribbon_Red_3Slides.png" type="Texture" id=2]
+[ext_resource path="res://addons/Tiny Swords/UI/Banners/Banner_Horizontal.png" type="Texture" id=3]
+[ext_resource path="res://addons/static/JetBrainsMono-Light.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://ui/GameOverUI.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 192, 64 )
+margin_left = 64.0
+margin_right = 64.0
+axis_stretch_horizontal = 2
+
+[sub_resource type="DynamicFont" id=2]
+size = 43
+outline_size = 2
+outline_color = Color( 0.878431, 0.388235, 0.113725, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 32, 48, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 16.0
+margin_bottom = 48.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.93187, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TopPanel:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.378929, 1 ),
+"update": 0,
+"values": [ Vector2( 284, -184 ), Vector2( 288, 14 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BottomPanel:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 0.4 ),
+"update": 0,
+"values": [ Vector2( 294, 647 ), Vector2( 300, 665 ), Vector2( 298, 368 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TopPanel:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 288, 14 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BottomPanel:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 298, 368 ) ]
+}
+
+[node name="GameOverUI" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 0.67451 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 437.0
+margin_bottom = 272.0
+
+[node name="TopPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -224.0
+margin_top = 14.0
+margin_right = 238.997
+margin_bottom = 159.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="GameOverLabel" type="Label" parent="TopPanel"]
+modulate = Color( 0.219608, 0.0352941, 0.00784314, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -116.5
+margin_top = -48.5
+margin_right = 117.5
+margin_bottom = 68.5
+custom_fonts/font = SubResource( 2 )
+text = "Game Over
+"
+
+[node name="BottomPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -214.0
+margin_top = -232.0
+margin_right = 238.002
+margin_bottom = -27.9994
+custom_styles/panel = SubResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="BottomPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.0
+margin_top = -51.0
+margin_right = 168.0
+margin_bottom = 19.0
+
+[node name="GridContainer" type="GridContainer" parent="BottomPanel/CenterContainer"]
+margin_right = 347.0
+margin_bottom = 91.0
+custom_constants/vseparation = 25
+custom_constants/hseparation = 25
+columns = 2
+
+[node name="Label" type="Label" parent="BottomPanel/CenterContainer/GridContainer"]
+modulate = Color( 0, 0, 0, 0.607843 )
+margin_right = 252.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 4 )
+text = "Time Survived:"
+
+[node name="TimeLabel" type="Label" parent="BottomPanel/CenterContainer/GridContainer"]
+modulate = Color( 0, 0, 0, 0.607843 )
+margin_left = 277.0
+margin_right = 347.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 4 )
+text = "14:59"
+
+[node name="Label2" type="Label" parent="BottomPanel/CenterContainer/GridContainer"]
+modulate = Color( 0, 0, 0, 0.607843 )
+margin_top = 58.0
+margin_right = 252.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 4 )
+text = "Monsters Defeated:"
+
+[node name="MonstersLabel" type="Label" parent="BottomPanel/CenterContainer/GridContainer"]
+modulate = Color( 0, 0, 0, 0.607843 )
+margin_left = 277.0
+margin_top = 58.0
+margin_right = 347.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 4 )
+text = "1234"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Default"
+anims/Default = SubResource( 5 )
+anims/RESET = SubResource( 6 )
